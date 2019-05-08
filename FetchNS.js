@@ -1,4 +1,4 @@
-	var userId = 0;
+var userId = 0;
 	var userObjArr = [];
 
     $('#form1').on('submit', function(e)
@@ -7,7 +7,7 @@
        var username = $("#name").val();
        $("#userpage").empty();
        $("#username").empty();
-	   fetch("http://jsonplaceholder.typicode.com/users?username="+username)
+	   fetch("https://jsonplaceholder.typicode.com/users?username="+username)
       .then((res) => res.json())
       .then((data) => 
        {
@@ -38,7 +38,7 @@
 function getPostTitlesforUser(userId)
 {
 	console.log(userId);
-	fetch("http://jsonplaceholder.typicode.com/posts?userId="+userId)
+	fetch("https://jsonplaceholder.typicode.com/posts?userId="+userId)
       .then((res) => res.json())
       .then((data) => 
        {
@@ -50,9 +50,9 @@ function getPostTitlesforUser(userId)
           let output = '<h2 class="mb-4">Posts</h2>';
 	 	 data.forEach(function(post)
        	 {
-       	// 	let tag = $(`<li class="link" data-link="http://jsonplaceholder.typicode.com/comments?postId=${post.id}"></li>`);
+       	// 	let tag = $(`<li class="link" data-link="https://jsonplaceholder.typicode.com/comments?postId=${post.id}"></li>`);
     		output += `
-            <div class="card card-body mb-3 link" data-link="http://jsonplaceholder.typicode.com/comments?postId=${post.id}">
+            <div class="card card-body mb-3 link" data-link="https://jsonplaceholder.typicode.com/comments?postId=${post.id}">
               <h3>${post.title}</h3>
               <p>${post.body}</p>
             </div>
@@ -71,7 +71,7 @@ $(document).on('click', '.link', function () {
     .then((data) => 
      {
      	$("#userpage").empty();
- //    	let back_to_posts = $('<button id="get_posts"  class="btn btn-primary btn-lg" data-link="http://jsonplaceholder.typicode.com/posts" onclick="getPostTitlesforUser(userId)">Back to posts</button>');
+ //    	let back_to_posts = $('<button id="get_posts"  class="btn btn-primary btn-lg" data-link="https://jsonplaceholder.typicode.com/posts" onclick="getPostTitlesforUser(userId)">Back to posts</button>');
   //		$("#userpage").append(back_to_posts).append($("<br/><br/>"));
   		let output = '<h2 class="mb-4">Comments</h2>';
   		data.forEach(comment => 
@@ -89,7 +89,7 @@ $(document).on('click', '.link', function () {
 
 function getAlbumTitlesforUser(userId)
 {
-	fetch("http://jsonplaceholder.typicode.com/albums?userId="+userId)
+	fetch("https://jsonplaceholder.typicode.com/albums?userId="+userId)
       .then((res) => res.json())
       .then((data) => 
        {
@@ -98,7 +98,7 @@ function getAlbumTitlesforUser(userId)
 	 	 data.forEach(function(album)
        	 {
     		output += `
-            <div class="card card-body mb-3 link2" data-link="http://jsonplaceholder.typicode.com/photos?albumId=${album.id}">
+            <div class="card card-body mb-3 link2" data-link="https://jsonplaceholder.typicode.com/photos?albumId=${album.id}">
               <h3>${album.title}</h3>
               <p>${album.body}</p>
             </div>
